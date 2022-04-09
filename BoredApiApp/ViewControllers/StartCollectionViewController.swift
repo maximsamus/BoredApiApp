@@ -11,34 +11,29 @@ import UIKit
 
 class StartCollectionViewController: UICollectionViewController {
     
+    let dataURL = "https://www.boredapi.com/api/activity"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Register cell classes
-        //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Do any additional setup after loading the view.
+        fetchData()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    // MARK: UICollectionViewDataSource
-    
-    //    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-    //        // #warning Incomplete implementation, return the number of sections
-    //        return 0
-    //    }
+    private func fetchData() {
+        guard let url = URL(string: dataURL) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print((error?.localizedDescription ?? "No Data"))
+                return
+            }
+            do {
+                let data = try JSONDecoder().decode(Data.self, from: data)
+                print(data)
+            } catch let error {
+                print ("ERROR IS HERE!!! \(error.localizedDescription)")
+            }
+        }.resume()
+    }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,10 +85,16 @@ class StartCollectionViewController: UICollectionViewController {
      */
     
 }
-
+// MARK: - UICollectionViewDelegateFlowLayout
 extension StartCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: UIScreen.main.bounds.width - 48, height: 100)
     }
 }
 
+// MARK: - Networking
+
+//private func fetchData() {
+//    guard let url = URL(string: dataURL) else { return }
+//
+//}
