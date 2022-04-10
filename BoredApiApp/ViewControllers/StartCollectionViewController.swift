@@ -9,33 +9,17 @@ import UIKit
 
 class StartCollectionViewController: UICollectionViewController {
     
+    @IBOutlet var dataLabel: UILabel!
+    
+    private var dataScott: [Scott] = []
+    
     private let dataURL = "https://api.genderize.io/?name=scott"
-    private let testURL = "https://swiftbook.ru//wp-content/uploads/api/api_course"
-    private let dogURL = "https://dog.ceo/api/breeds/image/random"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchTest()
         fetchData()
-        fetchDog()
     }
     
-    private func fetchTest() {
-        guard let url = URL(string: testURL) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No Data")
-                return
-            }
-            do {
-                let data = try JSONDecoder().decode(Course.self, from: data)
-                print(data)
-            } catch let error {
-                print ("ERROR IS HERE!!! \(error.localizedDescription)")
-            }
-        }.resume()
-    }
     
     private func fetchData() {
         guard let url = URL(string: dataURL) else { return }
@@ -54,29 +38,8 @@ class StartCollectionViewController: UICollectionViewController {
         }.resume()
     }
     
-    
-    private func fetchDog() {
-        guard let url = URL(string: dataURL) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No Data")
-                return
-            }
-            do {
-                let data = try JSONDecoder().decode(Dog.self, from: data)
-                print(data)
-            } catch let error {
-                print ("ERROR IS HERE!!! \(error.localizedDescription)")
-            }
-        }.resume()
-    }
-    
-    
-    
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        7
+        4
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -14,6 +14,7 @@
 		F79C26B82801DCAF00C86929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79C26B62801DCAF00C86929 /* LaunchScreen.storyboard */; };
 		F79C26C42801DD9900C86929 /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C32801DD9900C86929 /* ApiData.swift */; };
 		F79C26C72801E18100C86929 /* StartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C62801E18100C86929 /* StartCollectionViewController.swift */; };
+		F79C26C92802FCBD00C86929 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C82802FCBD00C86929 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F79C26B92801DCAF00C86929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79C26C32801DD9900C86929 /* ApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
 		F79C26C62801E18100C86929 /* StartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCollectionViewController.swift; sourceTree = "<group>"; };
+		F79C26C82802FCBD00C86929 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		F79C26AA2801DCAE00C86929 /* BoredApiApp */ = {
 			isa = PBXGroup;
 			children = (
+				F79C26CA2802FCD100C86929 /* Services */,
 				F79C26C02801DD1A00C86929 /* App */,
 				F79C26C52801DDA000C86929 /* Models */,
 				F79C26BF2801DD0900C86929 /* ViewControllers */,
@@ -108,6 +111,14 @@
 				F79C26C32801DD9900C86929 /* ApiData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F79C26CA2802FCD100C86929 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F79C26C82802FCBD00C86929 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				F79C26C42801DD9900C86929 /* ApiData.swift in Sources */,
 				F79C26AC2801DCAE00C86929 /* AppDelegate.swift in Sources */,
+				F79C26C92802FCBD00C86929 /* NetworkManager.swift in Sources */,
 				F79C26AE2801DCAE00C86929 /* SceneDelegate.swift in Sources */,
 				F79C26C72801E18100C86929 /* StartCollectionViewController.swift in Sources */,
 			);
