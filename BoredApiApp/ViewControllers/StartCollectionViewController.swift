@@ -28,7 +28,6 @@ class StartCollectionViewController: UICollectionViewController {
             }
             do {
                 self.dataScott = try JSONDecoder().decode(Scott.self, from: data)
-                                print(self.dataScott ?? "")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -47,13 +46,15 @@ class StartCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         if let scott = dataScott {
-        cell.configure(with: scott)
-            print(scott)
+            //            NetworkManager.shared.fetchData(from: scott) {
+            //                cell.configure(with: scott)
+            //            }
+            cell.configure(with: scott)
         }
         return cell
     }
-    
 }
+
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension StartCollectionViewController: UICollectionViewDelegateFlowLayout {
