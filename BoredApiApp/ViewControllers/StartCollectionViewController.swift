@@ -9,9 +9,7 @@ import UIKit
 
 class StartCollectionViewController: UICollectionViewController {
     
-    @IBOutlet var dataLabel: UILabel!
-    
-    private var dataScott: [Scott] = []
+    private var dataScott: Scott?
     
     private let dataURL = "https://api.genderize.io/?name=scott"
     
@@ -19,7 +17,6 @@ class StartCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         fetchData()
     }
-    
     
     private func fetchData() {
         guard let url = URL(string: dataURL) else { return }
@@ -30,8 +27,11 @@ class StartCollectionViewController: UICollectionViewController {
                 return
             }
             do {
-                let data = try JSONDecoder().decode(Scott.self, from: data)
-                print(data)
+                self.dataScott = try JSONDecoder().decode(Scott.self, from: data)
+                                print(self.dataScott ?? "")
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             } catch let error {
                 print ("ERROR IS HERE!!! \(error.localizedDescription)")
             }
@@ -39,21 +39,25 @@ class StartCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
-        // Configure the cell
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? StartViewCell else {
+            return UICollectionViewCell()
+        }
+        if let scott = dataScott {
+        cell.configure(with: scott)
+            print(scott)
+        }
         return cell
     }
+    
 }
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension StartCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 48, height: 100)
+        CGSize(width: UIScreen.main.bounds.width - 48, height: 200)
     }
 }

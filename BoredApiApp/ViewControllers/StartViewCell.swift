@@ -11,5 +11,7 @@ class StartViewCell: UICollectionViewCell {
     
     @IBOutlet var dataLabel: UILabel!
     
-    
+    func configure(with scott: Scott) {
+        dataLabel.text = "\(scott.name ?? "")"
+    }
 }
