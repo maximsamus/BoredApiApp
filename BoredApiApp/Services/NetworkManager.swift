@@ -63,7 +63,6 @@ class NetworkManager {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
-            
             do {
                 let rickAndMorty = try JSONDecoder().decode(RickAndMorty.self, from: data)
                 DispatchQueue.main.async {
@@ -108,7 +107,6 @@ class NetworkManager {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
-            
             do {
                 let result = try JSONDecoder().decode(Results.self, from: data)
                 DispatchQueue.main.async {
