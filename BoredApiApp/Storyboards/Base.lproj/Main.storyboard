@@ -95,8 +95,8 @@
                                     <constraint firstAttribute="height" constant="220" id="jiS-VT-L2l"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olu-Ro-wxa">
-                                <rect key="frame" x="183" y="378" width="48" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olu-Ro-wxa">
+                                <rect key="frame" x="97" y="378" width="220" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -106,6 +106,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4EZ-oc-3S1" firstAttribute="centerX" secondItem="F4O-ov-xz2" secondAttribute="centerX" id="6ER-hL-uK6"/>
+                            <constraint firstItem="Olu-Ro-wxa" firstAttribute="width" secondItem="4EZ-oc-3S1" secondAttribute="width" id="DJI-yu-20a"/>
                             <constraint firstItem="Olu-Ro-wxa" firstAttribute="top" secondItem="4EZ-oc-3S1" secondAttribute="bottom" constant="30" id="mEc-mQ-vCt"/>
                             <constraint firstItem="Olu-Ro-wxa" firstAttribute="centerX" secondItem="F4O-ov-xz2" secondAttribute="centerX" id="pEY-yf-f1F"/>
                             <constraint firstItem="4EZ-oc-3S1" firstAttribute="top" secondItem="vIL-H7-pV5" secondAttribute="top" constant="40" id="u7A-1G-37I"/>

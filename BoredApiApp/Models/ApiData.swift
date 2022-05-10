@@ -26,7 +26,6 @@ struct Results: Codable {
     let name: String?
     let status: String?
     let species: String?
-    let type: String?
     let gender: String?
     let origin: Origin?
     let location: Loction?
@@ -40,7 +39,6 @@ struct Results: Codable {
         Name: \(name ?? "")
         Status: \(status ?? "")
         Species: \(species ?? "")
-        Type: \(type ?? "")
         Gender: \(gender ?? "")
         Origin: \(origin?.name ?? "")
         Location: \(location?.name ?? "")
