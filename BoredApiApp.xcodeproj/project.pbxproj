@@ -14,7 +14,6 @@
 		F79C26B52801DCAF00C86929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79C26B42801DCAF00C86929 /* Assets.xcassets */; };
 		F79C26B82801DCAF00C86929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79C26B62801DCAF00C86929 /* LaunchScreen.storyboard */; };
 		F79C26C42801DD9900C86929 /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C32801DD9900C86929 /* ApiData.swift */; };
-		F79C26C72801E18100C86929 /* StartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C62801E18100C86929 /* StartCollectionViewController.swift */; };
 		F79C26C92802FCBD00C86929 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C82802FCBD00C86929 /* NetworkManager.swift */; };
 		F79C26CC28030F1400C86929 /* StartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26CB28030F1400C86929 /* StartViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		F79C26B72801DCAF00C86929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F79C26B92801DCAF00C86929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79C26C32801DD9900C86929 /* ApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
-		F79C26C62801E18100C86929 /* StartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCollectionViewController.swift; sourceTree = "<group>"; };
 		F79C26C82802FCBD00C86929 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F79C26CB28030F1400C86929 /* StartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +75,6 @@
 		F79C26BF2801DD0900C86929 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F79C26C62801E18100C86929 /* StartCollectionViewController.swift */,
 				F7171939282A87BF00A686E3 /* CharacterTableViewController.swift */,
 				F79C26CB28030F1400C86929 /* StartViewCell.swift */,
 			);
@@ -204,7 +201,6 @@
 				F79C26AC2801DCAE00C86929 /* AppDelegate.swift in Sources */,
 				F79C26C92802FCBD00C86929 /* NetworkManager.swift in Sources */,
 				F79C26AE2801DCAE00C86929 /* SceneDelegate.swift in Sources */,
-				F79C26C72801E18100C86929 /* StartCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

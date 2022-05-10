@@ -8,32 +8,33 @@
 import UIKit
 
 class CharacterTableViewController: UITableViewController {
-
+    
+    private var rickAndMorty: RickAndMorty?
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchData(from: Link.rickAndMortyApi.rawValue)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        rickAndMorty?.results?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? StartViewCell else { return UITableViewCell() }
+        guard let character = rickAndMorty?.results?[indexPath.row] else { return UITableViewCell() }
+        cell.configure(with: character)
         return cell
     }
   
-
+    private func fetchData(from url: String?) {
+        NetworkManager.shared.fetchData(from: url) { rickAndMorty in
+            self.rickAndMorty = rickAndMorty
+            self.tableView.reloadData()
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

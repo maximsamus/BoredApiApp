@@ -7,17 +7,19 @@
 
 import UIKit
 
-class StartViewCell: UICollectionViewCell {
+class StartViewCell: UITableViewCell {
     
-    @IBOutlet var dataLabel: UILabel!
+    @IBOutlet weak var characterImageView: UIImageView!
     
-    func configure(with scott: Scott) {
-        dataLabel.text =
-         """
-        \(scott.name ?? ""),
-        \(scott.gender ?? ""),
-        \(scott.probability ?? 0.0),
-        \(scott.count ?? 0),
-        """
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    func configure(with character: Results) {
+        nameLabel.text = character.name
+        NetworkManager.shared.fetchImage(from: character.image) { imageData in
+            self.characterImageView.image = UIImage(data: imageData)
+//            NetworkManager.shared.fetchImage1(from: character.image) { image in
+//                self.characterImageView.image = image
+            }
+        }
     }
-}
+

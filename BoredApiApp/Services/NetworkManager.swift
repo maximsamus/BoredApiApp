@@ -9,31 +9,8 @@ import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    //    private let dataURL = "https://api.genderize.io/?name=scott"
-    //    private var dataScott: Scott?
-    
+
     private init() {}
-    
-    //    func fetchData(from model: Scott, completion: @escaping () -> Void) {
-    //        guard let url = URL(string: dataURL) else { return }
-    //
-    //        URLSession.shared.dataTask(with: url) { data, _, error in
-    //            guard let data = data else {
-    //                print(error?.localizedDescription ?? "No Data")
-    //                return
-    //            }
-    //            do {
-    //                self.dataScott = try JSONDecoder().decode(Scott.self, from: data)
-    //                print(self.dataScott ?? "")
-    //                //                DispatchQueue.main.async {
-    //                //                    self.collectionView.reloadData()
-    //                //                }
-    //            } catch let error {
-    //                print ("ERROR IS HERE!!! \(error.localizedDescription)")
-    //            }
-    //
-    //        }.resume()
-    //    }
     
     func fetchRickAndMorty(from url: String?, with completion: @escaping(RickAndMorty) -> Void) {
         guard let url = URL(string: Link.rickAndMortyApi.rawValue) else { return }
@@ -74,7 +51,7 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchImage1 (from url: String?, with completion: @escaping(UIImage) -> Void) {
+    func fetchImage1(from url: String?, with completion: @escaping(UIImage) -> Void) {
         guard let url = URL(string: url ?? "") else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
