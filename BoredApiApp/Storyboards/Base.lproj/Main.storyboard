@@ -60,8 +60,16 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="a0W-Z5-L9G">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="EhZ-so-sx3"/>
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="tMU-EV-p1n"/>
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="EhZ-so-sx3">
+                            <connections>
+                                <action selector="updateData:" destination="ks0-Sc-km6" id="61E-Op-PGi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="tMU-EV-p1n">
+                            <connections>
+                                <action selector="updateData:" destination="ks0-Sc-km6" id="tf9-0R-Ofg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

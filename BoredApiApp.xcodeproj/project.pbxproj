@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F717193A282A87BF00A686E3 /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7171939282A87BF00A686E3 /* CharacterTableViewController.swift */; };
+		F717193C282ACB5C00A686E3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717193B282ACB5C00A686E3 /* DetailsViewController.swift */; };
 		F79C26AC2801DCAE00C86929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26AB2801DCAE00C86929 /* AppDelegate.swift */; };
 		F79C26AE2801DCAE00C86929 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26AD2801DCAE00C86929 /* SceneDelegate.swift */; };
 		F79C26B32801DCAE00C86929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79C26B12801DCAE00C86929 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		F7171939282A87BF00A686E3 /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
+		F717193B282ACB5C00A686E3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F79C26A82801DCAE00C86929 /* BoredApiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79C26AB2801DCAE00C86929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79C26AD2801DCAE00C86929 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				F7171939282A87BF00A686E3 /* CharacterTableViewController.swift */,
+				F717193B282ACB5C00A686E3 /* DetailsViewController.swift */,
 				F79C26CB28030F1400C86929 /* StartViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -199,6 +202,7 @@
 				F79C26CC28030F1400C86929 /* StartViewCell.swift in Sources */,
 				F717193A282A87BF00A686E3 /* CharacterTableViewController.swift in Sources */,
 				F79C26AC2801DCAE00C86929 /* AppDelegate.swift in Sources */,
+				F717193C282ACB5C00A686E3 /* DetailsViewController.swift in Sources */,
 				F79C26C92802FCBD00C86929 /* NetworkManager.swift in Sources */,
 				F79C26AE2801DCAE00C86929 /* SceneDelegate.swift in Sources */,
 			);

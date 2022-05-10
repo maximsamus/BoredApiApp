@@ -10,7 +10,6 @@ import UIKit
 class StartViewCell: UITableViewCell {
     
     @IBOutlet weak var characterImageView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
     
     func configure(with character: Results) {
