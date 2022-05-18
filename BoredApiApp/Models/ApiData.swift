@@ -32,7 +32,6 @@ struct Results: Codable {
     let image: String?
     let episode: [String]?
     let url: String?
-    let created: String?
     
     var description: String {
         """
@@ -42,7 +41,6 @@ struct Results: Codable {
         Gender: \(gender ?? "")
         Origin: \(origin?.name ?? "")
         Location: \(location?.name ?? "")
-        Created: \(created ?? "")
         """
     }
 }
