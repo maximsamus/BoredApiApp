@@ -10,11 +10,8 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var imageView: UIImageView! {
-        didSet {
-            imageView.layer.cornerRadius = imageView.frame.width / 2
-        }
-    }
+    @IBOutlet var imageView: UIImageView! 
+
     var character: Results!
     
     override func viewDidLoad() {
