@@ -16,8 +16,6 @@ class StartViewCell: UITableViewCell {
         nameLabel.text = character.name
         NetworkManager.shared.fetchImage(from: character.image) { imageData in
             self.characterImageView.image = UIImage(data: imageData)
-//            NetworkManager.shared.fetchImage1(from: character.image) { image in
-//                self.characterImageView.image = image
             }
         }
     }
