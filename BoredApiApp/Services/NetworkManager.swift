@@ -51,20 +51,6 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchImage1(from url: String?, with completion: @escaping(UIImage) -> Void) {
-        guard let url = URL(string: url ?? "") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            guard let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }
-    }
     func fetchImage(from url: String?, with completion: @escaping(Data) -> Void) {
         guard let stringURL = url else { return }
         guard let imageURL = URL(string: stringURL) else { return }
