@@ -9,14 +9,32 @@ import UIKit
 
 class StartViewCell: UITableViewCell {
     
-    @IBOutlet weak var characterImageView: UIImageView!
+    @IBOutlet weak var characterImageView: UIImageView! {
+        didSet {
+            characterImageView.layer.cornerRadius = 15
+        }
+    }
     @IBOutlet weak var nameLabel: UILabel!
     
-    func configure(with character: Results) {
-        nameLabel.text = character.name
-        NetworkManager.shared.fetchImage(from: character.image) { imageData in
-            self.characterImageView.image = UIImage(data: imageData)
+    private var imageUrl: URL? {
+        didSet {
+            characterImageView.image =  nil
+
+        }
+    }
+    
+    func updateImage(with character: Results) {
+        guard let url = imageUrl?.absoluteString else { return }
+        NetworkManager.shared.fetchImage(from: url) { imageData in
+            if URL(string: url) == self.imageUrl {
+                self.characterImageView.image = UIImage(data: imageData)
             }
         }
     }
+    
+    func configure(with character: Results) {
+        nameLabel.text = character.name
+        imageUrl = URL(string: character.image ?? "")
+    }
+}
 

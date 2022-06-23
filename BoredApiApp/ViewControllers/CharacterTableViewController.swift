@@ -26,6 +26,7 @@ class CharacterTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? StartViewCell else { return UITableViewCell() }
         guard let character = rickAndMorty?.results?[indexPath.row] else { return UITableViewCell() }
         cell.configure(with: character)
+        cell.updateImage(with: character)
         return cell
     }
     

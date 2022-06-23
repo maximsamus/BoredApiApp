@@ -11,7 +11,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var imageView: UIImageView! 
-
+    
     var character: Results!
     
     override func viewDidLoad() {
