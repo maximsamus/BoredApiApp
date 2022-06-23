@@ -16,8 +16,8 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager.shared.fetchImage(from: character.image) { imageData in
-            self.imageView.image = UIImage(data: imageData)
+        NetworkManager.shared.fetchImage(from: character.image) { image in
+            self.imageView.image = image
         }
         descriptionLabel.text = character.description
     }

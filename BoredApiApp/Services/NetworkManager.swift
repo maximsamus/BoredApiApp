@@ -9,25 +9,18 @@ import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-
+    
     private init() {}
     
-    func fetchRickAndMorty(from url: String?, with completion: @escaping(RickAndMorty) -> Void) {
-        guard let url = URL(string: Link.rickAndMortyApi.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
+    private func getImage(from url: String?, with completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        guard let imageURL = URL(string: url ?? "") else { return }
+        URLSession.shared.dataTask(with: imageURL) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
+                completion(.failure(.noData))
                 return
             }
-            do {
-                let result = try JSONDecoder().decode(RickAndMorty.self, from: data)
-                DispatchQueue.main.async {
-                    print(result)
-                    
-                }
-            } catch let error {
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                completion(.success(data))
             }
         }.resume()
     }
@@ -51,57 +44,23 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchImage(from url: String?, with completion: @escaping(Data) -> Void) {
-        guard let stringURL = url else { return }
-        guard let imageURL = URL(string: stringURL) else { return }
-        DispatchQueue.global().async {
-            guard let data = try? Data(contentsOf: imageURL) else { return }
-            DispatchQueue.main.async {
-                completion(data)
-            }
-        }
-    }
-    
-    func fetchCharacter(from url: String?, with completion: @escaping(Results) -> Void) {
-        guard let url = URL(string: url ?? "") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            do {
-                let result = try JSONDecoder().decode(Results.self, from: data)
-                DispatchQueue.main.async {
-                    completion(result)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.resume()
-    }
-    
-    func fetchEpisode(from url: String, completion: @escaping(Result<Episode, NetworkError>) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(.failure(.invalidURL))
+    func fetchImage(from url: String?, with completion: @escaping(UIImage) -> Void) {
+        guard let imageURL = URL(string: url ?? "") else { return }
+        if let cacheImage = ImageCache.shared.object(forKey: imageURL.lastPathComponent as NSString) {
+            completion(cacheImage)
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "no description")
-                return
+        getImage(from: url) { result in
+            switch result {
+            case .success(let imageData):
+                guard let image = UIImage(data: imageData) else { return }
+                ImageCache.shared.setObject(image, forKey: imageURL.lastPathComponent as NSString)
+                completion(image)
+            case .failure(let error):
+                print(error)
             }
-            do {
-                let episode = try JSONDecoder().decode(Episode.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(episode))
-                }
-            } catch {
-                completion(.failure(.decodingError))
-            }
-        }.resume()
+        }
     }
     
     enum NetworkError: Error {

@@ -14,20 +14,20 @@ class StartViewCell: UITableViewCell {
             characterImageView.layer.cornerRadius = 15
         }
     }
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     private var imageUrl: URL? {
         didSet {
             characterImageView.image =  nil
-
         }
     }
     
     func updateImage(with character: Results) {
         guard let url = imageUrl?.absoluteString else { return }
-        NetworkManager.shared.fetchImage(from: url) { imageData in
+        NetworkManager.shared.fetchImage(from: url) { image in
             if URL(string: url) == self.imageUrl {
-                self.characterImageView.image = UIImage(data: imageData)
+                self.characterImageView.image = image
             }
         }
     }

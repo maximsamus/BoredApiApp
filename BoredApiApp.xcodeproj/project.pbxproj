@@ -18,6 +18,7 @@
 		F79C26C42801DD9900C86929 /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C32801DD9900C86929 /* ApiData.swift */; };
 		F79C26C92802FCBD00C86929 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26C82802FCBD00C86929 /* NetworkManager.swift */; };
 		F79C26CC28030F1400C86929 /* StartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C26CB28030F1400C86929 /* StartViewCell.swift */; };
+		F7A6938528649DE1006B75ED /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A6938428649DE1006B75ED /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F79C26C32801DD9900C86929 /* ApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
 		F79C26C82802FCBD00C86929 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F79C26CB28030F1400C86929 /* StartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewCell.swift; sourceTree = "<group>"; };
+		F7A6938428649DE1006B75ED /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				F79C26C82802FCBD00C86929 /* NetworkManager.swift */,
+				F7A6938428649DE1006B75ED /* ImageCache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				F79C26C42801DD9900C86929 /* ApiData.swift in Sources */,
 				F79C26CC28030F1400C86929 /* StartViewCell.swift in Sources */,
+				F7A6938528649DE1006B75ED /* ImageCache.swift in Sources */,
 				F717193A282A87BF00A686E3 /* CharacterTableViewController.swift in Sources */,
 				F79C26AC2801DCAE00C86929 /* AppDelegate.swift in Sources */,
 				F717193C282ACB5C00A686E3 /* DetailsViewController.swift in Sources */,

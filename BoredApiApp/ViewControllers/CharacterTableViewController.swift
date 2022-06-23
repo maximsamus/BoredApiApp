@@ -29,19 +29,19 @@ class CharacterTableViewController: UITableViewController {
         cell.updateImage(with: character)
         return cell
     }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let detailVC = segue.destination as? DetailsViewController else { return }
+        guard let character = rickAndMorty?.results?[indexPath.row] else { return }
+        detailVC.character = character
+    }
     
     private func fetchData(from url: String?) {
         NetworkManager.shared.fetchData(from: url) { rickAndMorty in
             self.rickAndMorty = rickAndMorty
             self.tableView.reloadData()
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let detailVC = segue.destination as? DetailsViewController else { return }
-        guard let character = rickAndMorty?.results?[indexPath.row] else { return }
-        detailVC.character = character
     }
     
     @IBAction func updateData(_ sender: UIBarButtonItem) {
